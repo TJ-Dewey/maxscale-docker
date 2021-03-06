@@ -136,9 +136,9 @@ nano docker-compose.yml
 
 ## Edit in the .cnf file
 In the maxscale-docker/maxscale/maxscale.cnf.d directory:
-...
+```
 nano example.cnf
-...
+```
 -     delete [server3] and change address entry of of [server1] and [server2] from master to master1 and slave1 to master2
 -     Under [Read-Write-Service] 
 	-	change: servers= to server1, server2
