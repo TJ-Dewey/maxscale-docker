@@ -146,6 +146,8 @@ nano example.cnf
 	-	disable: router_options=slave
 
 
+
+## Clean up
 Once complete, to remove the cluster and maxscale containers:
 
 ```
