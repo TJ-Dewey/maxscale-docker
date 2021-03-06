@@ -129,17 +129,17 @@ Having built from a git-clone of this project, all of the above information is p
 ## Edit the .yml file
 In the mascale-docker/maxcale directory:
 nano docker-compose.yml
-     -rename: master to master1, slave1 to master2 and delete slave2.
-     -disable failover functionality by deleting or putting a # in front of any code that mentions "slave"
+-     rename: master to master1, slave1 to master2 and delete slave2.
+-     disable failover functionality by deleting or putting a # in front of any code that mentions "slave"
 
 ## Edit in the .cnf file
 In the maxscale-docker/maxscale/maxscale.cnf.d directory:
 nano example.cnf
-     -delete [server3] and change address entry of of [server1] and [server2] from master to master1 and slave1 to master2
-     -Under [Read-Write-Service] 
-          -change: servers= to server1, server2
-	  -disable: master_failure_mode=fail_on_write, 
-          -disable: router_options=slave
+-     delete [server3] and change address entry of of [server1] and [server2] from master to master1 and slave1 to master2
+-     Under [Read-Write-Service] 
+	-	change: servers= to server1, server2
+	-	disable: master_failure_mode=fail_on_write, 
+	-	disable: router_options=slave
 
 
 Once complete, to remove the cluster and maxscale containers:
