@@ -123,6 +123,8 @@ $ docker-compose exec maxscale maxctrl list servers
 └─────────┴─────────┴──────┴─────────────┴─────────────────┴─────────────┘
 
 ```
+#Rebuild into Sharded Databases
+
 
 Once complete, to remove the cluster and maxscale containers:
 
