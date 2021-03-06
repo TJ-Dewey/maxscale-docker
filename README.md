@@ -128,9 +128,9 @@ Having built from a git-clone of this project, all of the above information is p
 
 ## Edit the .yml file
 In the mascale-docker/maxcale directory:
-...
+```
 nano docker-compose.yml
-...
+```
 -     rename: master to master1, slave1 to master2 and delete slave2.
 -     disable failover functionality by deleting or putting a # in front of any code that mentions "slave"
 
