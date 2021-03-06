@@ -134,7 +134,7 @@ nano docker-compose.yml
 -     rename: master to master1, slave1 to master2 and delete slave2.
 -     disable failover functionality by deleting or putting a # in front of any option that mentions "slave"
 
-## Edit in the .cnf file
+## Edit the .cnf file
 In the maxscale-docker/maxscale/maxscale.cnf.d directory:
 ```
 nano example.cnf
