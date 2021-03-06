@@ -148,7 +148,7 @@ nano example.cnf
 # To Do
 ## .yml file:
 -	as this is no longer a failover cluster; the ports for master1 and master2 should not match. (find out what to change to)
--	reassign volumes to find zipcodes_one and zipcodes_two
+-	reassign volumes in master1 and master2 to find zipcodes_one and zipcodes_two
 
 ## .cnf file:
 -	as above; the ports for server1 and server2 should be changed accordingly
