@@ -126,6 +126,17 @@ $ docker-compose exec maxscale maxctrl list servers
 # Rebuild into Sharded Databases
 Having built from a git-clone of this project, all of the above information is pertinent to my starting point. Changing existing build over to a sharded database with 2 shards
 
+## Import database shards
+create a .sql directory
+```
+sudo mkdir .sql
+```
+download the database shards and move them to the .sql directory
+```
+sudo mv shard1.sql /.sql
+sudo mv shard2.sql /.sql
+```
+
 ## Edit the .yml file
 In the mascale-docker/maxcale directory:
 ```
@@ -134,6 +145,9 @@ nano docker-compose.yml
 -     rename: master to master1, slave1 to master2 and delete slave2.
 -     disable failover functionality by deleting or putting a # in front of any option that mentions "slave"
 -     change ports: master1 should already be on 3306. set master2 port to 3307
+-     change the volumes entry for master1 and master2
+		- ./sql/shard1.sql:/docker-entrypoint-initdb.d
+		- ./sql/shard2.sql:/docker-entrypoint-initdb.d
 
 ## Edit the .cnf file
 In the maxscale-docker/maxscale/maxscale.cnf.d directory:
