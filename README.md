@@ -140,7 +140,9 @@ In the maxscale-docker/maxscale/maxscale.cnf.d directory:
 ```
 nano example.cnf
 ```
--     delete [server3] and change address entry of of [server1] and [server2] from master to master1 and slave1 to master2
+-     delete [server3] 
+-     change address entry of [server1] from master to master1
+-     change address entry of [server2] from slave1 to master2
 -     change ports: master2 should be set to port 3307
 -     Under [Read-Write-Service] 
 	-	change: servers= to server1, server2
