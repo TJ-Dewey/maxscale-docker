@@ -145,6 +145,11 @@ nano example.cnf
 	-	disable: master_failure_mode=fail_on_write, 
 	-	disable: router_options=slave
 
+## For Python Management
+Can use the script in the repo: 350 RW project:
+
+In general though; a Python mynagement approach will need to have a connection per database shard; connected to ports 3306 for zipcodes_one (master1) and 3307 for zipcodes_two (master2)
+
 # To Do
 ## .yml file:
 -	as this is no longer a failover cluster; the ports for master1 and master2 should not match. (find out what to change to)
