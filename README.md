@@ -133,6 +133,7 @@ nano docker-compose.yml
 ```
 -     rename: master to master1, slave1 to master2 and delete slave2.
 -     disable failover functionality by deleting or putting a # in front of any option that mentions "slave"
+-     change ports: master1 should already be on 3306. set master2 port to 3307
 
 ## Edit the .cnf file
 In the maxscale-docker/maxscale/maxscale.cnf.d directory:
@@ -140,11 +141,12 @@ In the maxscale-docker/maxscale/maxscale.cnf.d directory:
 nano example.cnf
 ```
 -     delete [server3] and change address entry of of [server1] and [server2] from master to master1 and slave1 to master2
+-     change ports: master2 should be set to port 3307
 -     Under [Read-Write-Service] 
 	-	change: servers= to server1, server2
 	-	disable: master_failure_mode=fail_on_write, 
 	-	disable: router_options=slave
-
+	
 ## For Python Management
 Can use the script in the repo: 350 RW project:
 
