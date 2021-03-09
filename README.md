@@ -144,7 +144,6 @@ nano docker-compose.yml
 ```
 -     rename: master to master1, slave1 to master2 and delete slave2.
 -     disable failover functionality by deleting or putting a # in front of any option that mentions "slave"
--     change ports: master1 should already be on 3306. set master2 port to 3307
 -     change the volumes entry for master1 and master2
 		- ./sql/shard1.sql:/docker-entrypoint-initdb.d
 		- ./sql/shard2.sql:/docker-entrypoint-initdb.d
@@ -158,7 +157,6 @@ nano example.cnf
 -     delete [server3] 
 -     change address entry of [server1] from master to master1
 -     change address entry of [server2] from slave1 to master2
--     change ports: master2 should be set to port 3307
 -     Under [Read-Write-Service] 
 	-	change: servers= to server1, server2
 	-	disable: master_failure_mode=fail_on_write, 
