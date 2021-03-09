@@ -165,7 +165,7 @@ nano example.cnf
 ## For Python Management
 Can use the script in the repo: 350 RW project:
 
-In general though; a Python mynagement approach will need to have a connection per database shard; connected to ports 3306 for zipcodes_one (master1) and 3307 for zipcodes_two (master2)
+In general though; a Python mynagement approach will need to have a connection per database shard; connected to port 3306 
 
 ## Clean up
 Once complete, to remove the cluster and maxscale containers:
