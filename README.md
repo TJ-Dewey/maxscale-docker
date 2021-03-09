@@ -147,7 +147,7 @@ nano docker-compose.yml
 -     change the volumes entry for master1 and master2
 		- ./sql/shard1.sql:/docker-entrypoint-initdb.d
 		- ./sql/shard2.sql:/docker-entrypoint-initdb.d
--     under maxscale service, change depends on entry to master1 and master2 
+-     under maxscale service, change 'depends on' entry to master1 and master2 
 
 ## Edit the .cnf file
 In the maxscale-docker/maxscale/maxscale.cnf.d directory:
