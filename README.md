@@ -127,14 +127,16 @@ $ docker-compose exec maxscale maxctrl list servers
 Having built from a git-clone of this project, all of the above information is pertinent to my starting point. Changing existing build over to a sharded database with 2 shards
 
 ## Import database shards
-create a .sql directory
+create directories in the ~/maxscale-docker/maxscale/sql directory
 ```
-sudo mkdir .sql
+sudo mkdir ./master1
+sudo mkdir ./master2
 ```
-download the database shards and move them to the .sql directory
+download the database shards and move them to the those new directories
 ```
-sudo mv shard1.sql /.sql
-sudo mv shard2.sql /.sql
+cd /dowloads
+sudo mv shard1.sql ~/maxscale-docker/maxscale/sql/master1 
+sudo mv shard2.sql ~/maxscale-docker/maxscale/sql/master2
 ```
 
 ## Edit the .yml file
@@ -145,8 +147,8 @@ nano docker-compose.yml
 -     rename: master to master1, slave1 to master2 and delete slave2.
 -     disable failover functionality by deleting or putting a # in front of any option that mentions "slave"
 -     change the volumes entry for master1 and master2
-		- ./sql/shard1.sql:/docker-entrypoint-initdb.d
-		- ./sql/shard2.sql:/docker-entrypoint-initdb.d
+		- ./sql/master1:/docker-entrypoint-initdb.d
+		- ./sql/master2:/docker-entrypoint-initdb.d
 -     under maxscale service, change 'depends on' entry to master1 and master2 
 
 ## Edit the .cnf file
