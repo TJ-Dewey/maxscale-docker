@@ -129,14 +129,14 @@ Having built from a git-clone of this project, all of the above information is p
 ## Import database shards
 create directories in the ~/maxscale-docker/maxscale/sql directory
 ```
-sudo mkdir ./master1
-sudo mkdir ./master2
+sudo mkdir ./shrd1
+sudo mkdir ./shrd2
 ```
 download the database shards and move them to the those new directories
 ```
-cd /dowloads
-sudo mv shard1.sql ~/maxscale-docker/maxscale/sql/master1 
-sudo mv shard2.sql ~/maxscale-docker/maxscale/sql/master2
+cd ~/maxscale-docker/maxscale/sql
+sudo mv ~/Downloads/shard1.sql ./shrd1 
+sudo mv ~/Downloads/shard2.sql ./shrd2 
 ```
 
 ## Edit the .yml file
