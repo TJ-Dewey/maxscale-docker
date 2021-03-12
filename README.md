@@ -147,8 +147,8 @@ nano docker-compose.yml
 -     rename: master to master1, slave1 to master2 and delete slave2.
 -     disable failover functionality by deleting or putting a # in front of any option that mentions "slave"
 -     change the volumes entry for master1 and master2
-		- ./sql/master1:/docker-entrypoint-initdb.d
-		- ./sql/master2:/docker-entrypoint-initdb.d
+		- ./sql/shrd1:/docker-entrypoint-initdb.d
+		- ./sql/shrd2:/docker-entrypoint-initdb.d
 -     under maxscale service, change 'depends on' entry to master1 and master2 
 
 ## Edit the .cnf file
