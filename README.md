@@ -165,9 +165,7 @@ nano example.cnf
 	-	disable: router_options=slave
 	
 ## For Python Management
-Can use the script in the repo: 350 RW project:
-
-In general though; a Python mynagement approach will need to have a connection per database shard; connected to port 3306 
+Can use the script in main.py file found int the "350 RW project" folder:
 
 ## Clean up
 Once complete, to remove the cluster and maxscale containers:
