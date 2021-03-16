@@ -152,6 +152,9 @@ nano docker-compose.yml
 -     under maxscale service, change 'depends on' entry to master1 and master2 
 
 ## Edit the .cnf file
+Changes based on info from:  
+https://mariadb.com/kb/en/mariadb-maxscale-14/maxscale-simple-sharding-with-two-servers/  
+  
 In the maxscale-docker/maxscale/maxscale.cnf.d directory:
 ```
 nano example.cnf
