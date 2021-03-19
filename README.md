@@ -138,6 +138,20 @@ cd ~/maxscale-docker/maxscale/sql
 sudo mv ~/Downloads/shard1.sql ./shrd1 
 sudo mv ~/Downloads/shard2.sql ./shrd2 
 ```
+## Install Instructions
+To simply implement the changes I made, replace project files with those in the 350 RW project folder.
+locate docker-compose.yml
+```
+cd ~/maxscale-docker/maxscale
+```
+locate example.cnf
+```
+cd ~/maxscale-docker/maxscale/maxscale.cnf.d
+```
+run main.py from pycharm
+
+# Rebuild step-by-step
+changes that were made described below
 
 ## Edit the .yml file
 In the mascale-docker/maxcale directory:
