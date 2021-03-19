@@ -2,76 +2,69 @@
 # Real World Project Zachary Rubin, zrubin@rtc.edu
 # T.J. Dewey, tjdewey@student.rtc.edu
 
-# With multi-cursor hint from Luma Naser
-
 import mysql.connector
 
-def connect_zip1():
+def connect():
     # correct address/ port?
     # previously used: passwd='maxpwd'
-    conn1 = mysql.connector.connect(host='192.168.1.33',
+    conn = mysql.connector.connect(host='192.168.1.35',
                                     user='maxuser',
                                     password='maxpwd',
-                                    database='zipcodes_one')
-    return conn1
-
-
-
-def connect_zip2():
-    # previously used: passwd='maxpwd'
-    conn2 = mysql.connector.connect(host='192.168.1.33',
-                                    user='maxuser',
-                                    password='maxpwd',
-                                    database='zipcodes_two')
-    return conn2
+                                    port='4000')
+    return conn
 
 #### the 4 questions ####
+# reminder: commits are for writing
 
-def question_one(cursor, conn):
-## query tips from stackoveflow.com
-    query = ("SELECT Zipcode FROM zipcodes_one LIMIT 10 OFFSET N-10")
-    cursor.execute(query)
-    conn.commit()
-    print(cursor)
-    return cursor
 
-def question_two(cursor, conn):
-    ## query tips from stackoveflow.com
-    query = ("SELECT Zipcode FROM zipcodes_two LIMIT 10")
+def question_one(cursor):
+## query tips from stackoverflow.com
+## cursor tips from https://stackoverflow.com/questions/50596062/how-to-read-all-data-from-cursor-execute-in-python
+    query = "SELECT Zipcode FROM zipcodes_one.zipcodes_one ORDER BY Zipcode DESC LIMIT 10;"
     cursor.execute(query)
-    conn.commit()
-    print(cursor)
-    return cursor
+    data = cursor.fetchall()
+    print ('Last 10 of zipcodes 1')
+    for row in data:
+        print (row)
+    return
 
-def question_three(cursor, conn):
-    query = ("SELECT MAX(Zipcode) FROM zipcodes_one")
+def question_two(cursor):
+    query = "SELECT Zipcode FROM zipcodes_two.zipcodes_two ORDER BY Zipcode LIMIT 10;"
     cursor.execute(query)
-    conn.commit()
-    print(cursor)
-    return cursor
+    data = cursor.fetchall()
+    print ('First 10 of zipcodes 2')
+    for row in data:
+        print (row)
+    return
 
-def question_four(cursor, conn):
-    query = ("SELECT MIN(Zipcode) FROM zipcodes_two")
+def question_three(cursor):
+    query = "SELECT MAX(DISTINCT Zipcode) FROM zipcodes_one.zipcodes_one;"
     cursor.execute(query)
-    conn.commit()
-    print(cursor)
-    return cursor
+    data = cursor.fetchall()
+    print ('Largest in Zipcodes 1')
+    print (data)
+    return
+
+def question_four(cursor):
+    query = "SELECT MIN(DISTINCT Zipcode) FROM zipcodes_two.zipcodes_two;"
+    cursor.execute(query)
+    data = cursor.fetchall()
+    print ('Smallest in Zipcodes 2')
+    print (data)
+    return
 
 def main():
-# connections
-    conn1 = connect_zip1()
-    conn2 = connect_zip2()
-    curs1 = conn1.cursor()
-    curs2 = conn2.cursor()
+    conn = connect()
+    curs = conn.cursor()
 # queries
-    question_one(curs1, conn1)
-    question_two(curs2, conn2)
-    question_three(curs1, conn1)
-    question_four(curs2, conn2)
+    question_one(curs)
+    question_two(curs)
+    question_three(curs)
+    question_four(curs)
 #disconnect
-    conn1.close()
-    conn2.close()
+    conn.close()
 
 if __name__ == '__main__':
     main()
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
